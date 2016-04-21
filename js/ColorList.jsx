@@ -1,28 +1,21 @@
 let React = require('react/addons');
+let ColorItem = require('./ColorItem.jsx');
+let CustomColors = require('./CustomColors.jsx');
 
 module.exports = class ColorList extends React.Component {
   constructor(props) {
     super(props);
   }
-
+  
   render() {
 
-    let colorItem = function(name, colors) {
-      return (
-        <div key={name} 
-          className='color-item' 
-          alt={name}
-          onClick={this.props.onSelect.bind(this, colors)}>
-          {colors.map((c) => <div style={{background: c}}/>)}
-        </div>
-      );
-    }.bind(this);
-    
     console.log('colors');
 
     return (
       <div className="color-list">
-        {Object.keys(this.props.colors).map((k)=> colorItem(k, this.props.colors[k]))}
+        <CustomColors onSelect={this.props.onSelect} />
+        {Object.keys(this.props.colors).map((k) =>
+          <ColorItem name={k} onSelect={this.props.onSelect} colors={this.props.colors[k]} />)}
       </div>
     );
   }

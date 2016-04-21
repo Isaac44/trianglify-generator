@@ -47,7 +47,7 @@ h2 {
 }
 
 h3 {
-  margin: 1rem 0 0 0;
+  margin: 0;
 }
 
 a, a:visited {
@@ -192,26 +192,37 @@ header {
     flex: 1 0;
   }
 
+  .color-title {
+    float: left;
+  }
+  
+  .color-custom {
+    float: right;
+  }
+
   .color-list {
     padding: 0 1rem 1rem 1rem;
     overflow: scroll;
     flex: 1;
   }
-
+  
   .color-item {
-    margin: 0.5rem 0;
-    height: 30px;
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    align-items: stretch;
     cursor: pointer;
-    border: 1px solid darken(white, 20%);
-    // padding: 2px;
-    // background: white;
-    div {
-      flex: 1;
-    }
+  }
+}
+
+.color-item {
+  margin: 0.5rem 0;
+  height: 30px;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: stretch;
+  border: 1px solid darken(white, 20%);
+  // padding: 2px;
+  // background: white;
+  div {
+    flex: 1;
   }
 }
 
@@ -247,6 +258,14 @@ header {
       margin-right: 5px;
     }
   }
+}
+
+.modal-add {
+  float: left;
+}
+
+.modal-cancel {
+  float: right;
 }
 
 footer {

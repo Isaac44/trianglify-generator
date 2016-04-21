@@ -1,6 +1,6 @@
 let React = require('react/addons');
 let TrianglifyCanvas = require('./TrianglifyCanvas.jsx');
-let Trianglify = require('Trianglify');
+let Trianglify = require('trianglify');
 
 module.exports = class Display extends React.Component {
   constructor(props) {

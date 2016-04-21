@@ -30,9 +30,8 @@ module.exports = class Controls extends React.Component {
           <input type="range" min="10" max="400" step="5"
                  value={this.props.opts.cell_size}
                  onChange={(e) => handleOptionChange({cell_size: parseInt(e.target.value)})}/>
-          <h3>Color</h3>
         </div>
-        <ColorList colors={Trianglify.colorbrewer} 
+        <ColorList colors={Trianglify.colorbrewer}
         onSelect={(c) => handleOptionChange({x_colors: c})} />
       </div>
     );
