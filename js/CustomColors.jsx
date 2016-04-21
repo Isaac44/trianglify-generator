@@ -10,12 +10,12 @@ let ColorItem = require('./ColorItem.jsx');
 module.exports = class CustomColors extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {};
     this.state.paletteList = [];
     this.state.palette = [];
     this.state.modalIsOpen = false;
-    
+
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.changeColor = this.changeColor.bind(this);
@@ -23,39 +23,41 @@ module.exports = class CustomColors extends React.Component {
     this.addPalette = this.addPalette.bind(this);
   }
 
-  /* Open the dialog box and set up parameters */  
+  /* Open the dialog box and set up parameters */
   openModal() {
     this.state.modalIsOpen = true;
     this.currentColor = "ffffff";
     this.state.palette = [];
     this.setState(this.state);
   }
-  
+
   /* Close dialog box */
   closeModal() {
     this.state.modalIsOpen = false;
     this.setState(this.state);
   }
-  
+
   /* Keep track of what the color picker selects */
   changeColor(color) {
     this.currentColor = color.hex;
   }
-  
+
   /* Add the current color to the custom palette */
   addColor() {
     this.state.palette.push("#" + this.currentColor);
     this.setState(this.state);
   }
-  
+
   /* Add the custom palette to the list and close the dialog */
   addPalette() {
     this.state.paletteList.unshift(this.state.palette);
     this.closeModal();
   }
 
-  /* Render the component */  
+  /* Render the component */
   render() {
+    var disableAdd = this.state.palette.length < 2;
+
     return(
       <div>
         <div className="color-title">
@@ -64,12 +66,12 @@ module.exports = class CustomColors extends React.Component {
         <div className="color-custom">
           <input type="button" value="Add Custom Palette" onClick={this.openModal} />
         </div>
-        
+
         <br /><br />
-        
+
         {this.state.paletteList.map((palette) =>
           <ColorItem name='custom' onSelect={this.props.onSelect} colors={palette} />)}
-        
+
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
@@ -82,7 +84,7 @@ module.exports = class CustomColors extends React.Component {
               transform: 'translate(-50%, -50%)',
             }
           }} >
-          
+
           <ColorPicker.default
             type="sketch"
             color = {this.currentColor}
@@ -93,9 +95,9 @@ module.exports = class CustomColors extends React.Component {
           <ColorItem name='preview' onSelect={function(){}} colors={this.state.palette} />
 
           <br />
-          
+
           <div className="modal-add">
-            <input type="button" value="Add Palette" onClick={this.addPalette} disabled={this.state.palette.length < 2} />
+            <input type="button" value="Add Palette" onClick={this.addPalette} disabled={disableAdd} title={disableAdd ? 'please add at least 2 colors to your palette' : ''} />
           </div>
           <div className="modal-cancel">
             <input type="button" value="Cancel" onClick={this.closeModal} />
