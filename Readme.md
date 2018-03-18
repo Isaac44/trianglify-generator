@@ -1,5 +1,7 @@
 # trianglify-generator
 
-Hi folks. This is just a little demo I'm not quite done with yet. 
-It uses my [Trianglify](https://github.com/qrohlf/trianglify) library to generate colorful patterns.
-Right now, it's least buggy in Safari or Chrome on OSX.
+**PROJECT ARCHIVED** - I've got a new version of this tool online at [https://trianglify.io](https://trianglify.io). This repo is no longer maintained, but I'm keeping it around for reference purposes.
+
+### For the new version of trianglify-generator, go to [https://trianglify.io](https://trianglify.io)
+
+### For the trianglify open-source javascript library, go to [@qrohlf/trianglify](https://github.com/qrohlf/trianglify)
